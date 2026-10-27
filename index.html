@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Faro Homecare helps families explore personal assistance, live-in care, non-live-in care, and respite care with clarity and compassion.">
+  <meta name="theme-color" content="#FAF8F3">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23254D3C'/%3E%3Ctext x='30' y='45' font-family='Georgia,serif' font-size='42' fill='%23FAF8F3' text-anchor='middle'%3Ef%3C/text%3E%3Ccircle cx='46' cy='43' r='3.5' fill='%23A8B7A0'/%3E%3C/svg%3E">
+  <title>Faro Homecare — Care that feels like home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://images.pexels.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+  <svg class="svg-sprite" aria-hidden="true" focusable="false" width="0" height="0">
+    <symbol id="icon-arrow" viewBox="0 0 24 24">
+      <path d="M4 12h15"></path>
+      <path d="m13 6 6 6-6 6"></path>
+    </symbol>
+    <symbol id="icon-leaf" viewBox="0 0 24 24">
+      <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
+      <path d="M2 21c0-3 1.85-5.36 5.08-6"></path>
+    </symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24">
+      <path d="m4 12 5 5L20 6"></path>
+    </symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24">
+      <path d="M6 6l12 12"></path>
+      <path d="M18 6 6 18"></path>
+    </symbol>
+    <symbol id="icon-info" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9"></circle>
+      <path d="M12 11v5"></path>
+      <path d="M12 8h.01"></path>
+    </symbol>
+  </svg>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="#home" aria-label="Faro Homecare — home">
+        <span class="brand__name">faro<span class="brand__dot">.</span></span>
+        <span class="brand__tag">homecare</span>
+      </a>
+
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a class="site-nav__link" href="#home" data-section="home">Home</a>
+        <a class="site-nav__link" href="#about-faro" data-section="about-faro">About</a>
+        <a class="site-nav__link" href="#services" data-section="services">Services</a>
+        <a class="site-nav__link" href="#how-it-works" data-section="how-it-works">How It Works</a>
+        <a class="site-nav__link" href="#contact" data-section="contact">Contact</a>
+      </nav>
+
+      <div class="site-header__actions">
+        <button class="header-link" type="button" data-open-dialog="caregiver-modal">Become a Caregiver</button>
+        <button class="button button--primary site-header__cta" type="button" data-open-dialog="care-modal">
+          Request Care
+          <svg class="icon" aria-hidden="true"><use href="#icon-arrow"></use></svg>
+        </button>
+        <button class="menu-toggle" type="button" id="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+          <span class="menu-toggle__bar"></span>
+          <span class="menu-toggle__bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Site menu" aria-hidden="true" inert>
+    <div class="container mobile-menu__inner">
+      <nav class="mobile-menu__nav" aria-label="Mobile navigation">
+        <a class="mobile-menu__link" href="#home"><span aria-hidden="true">01</span>Home</a>
+        <a class="mobile-menu__link" href="#about-faro"><span aria-hidden="true">02</span>About</a>
+        <a class="mobile-menu__link" href="#services"><span aria-hidden="true">03</span>Services</a>
+        <a class="mobile-menu__link" href="#how-it-works"><span aria-hidden="true">04</span>How It Works</a>
+        <a class="mobile-menu__link" href="#contact"><span aria-hidden="true">05</span>Contact</a>
+      </nav>
+      <div class="mobile-menu__actions">
+        <button class="button button--primary button--block" type="button" data-open-dialog="care-modal">
+          Request Care
+          <svg class="icon" aria-hidden="true"><use href="#icon-arrow"></use></svg>
+        </button>
+        <button class="button button--outline button--block" type="button" data-open-dialog="caregiver-modal">Become a Caregiver</button>
+      </div>
+      <p class="mobile-menu__note">Care that feels like home.</p>
+    </div>
+  </div>
+
+  <main id="main">
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <p class="eyebrow" data-reveal>Homecare, with heart</p>
+          <h1 class="hero__title" id="hero-title" data-reveal style="--delay: 0.08s">
+            <span class="hero__title-line">Care that</span>
+            <span class="hero__title-line">feels like</span>
+            <span class="hero__title-line"><em>home.</em></span>
+          </h1>
+          <p class="hero__lead" data-reveal style="--delay: 0.16s">
+            Faro helps families explore homecare services with clarity and confidence — from everyday support to live-in care and the occasional pause for rest.
+          </p>
+          <div class="hero__actions" data-reveal style="--delay: 0.24s">
+            <button class="button button--primary" type="button" data-open-dialog="care-modal">
+              Request Care
+              <svg class="icon" aria-hidden="true"><use href="#icon-arrow"></use></svg>
+            </button>
+            <button class="link-arrow" type="button" data-open-dialog="caregiver-modal">
+              Become a Caregiver
+              <svg class="icon" aria-hidden="true"><use href="#icon-arrow"></use></svg>
+            </button>
+          </div>
+          <div class="hero__footnote" data-reveal style="--delay: 0.32s">
+            <span class="hero__rule" aria-hidden="true"></span>
+            <p>Thoughtful care, shaped around the way you live.</p>
+          </div>
+        </div>
+
+        <div class="hero__media-wrap" data-reveal style="--delay: 0.14s">
+          <figure class="hero__media">
+            <img
+              src="https://images.pexels.com/photos/29372693/pexels-photo-29372693.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400"
+              alt="A caregiver offering attentive support to an older woman in a comfortable home"
+              width="1200"
+              height="1800"
+              fetchpriority="high"
+            >
+            <figcaption class="hero__caption">
+              <span class="hero__caption-icon" aria-hidden="true">
+                <svg class="icon"><use href="#icon-leaf"></use></svg>
+              </span>
+              <span>Care begins with understanding.</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section intro" id="approach" aria-labelledby="intro-title">
+      <div class="container intro__inner">
+        <div class="intro__head" data-reveal>
+          <p class="eyebrow">Our approach</p>
+          <h2 class="intro__title" id="intro-title">Because care is <em>personal.</em></h2>
+        </div>
+        <div class="intro__aside" data-reveal style="--delay: 0.12s">
+          <p>
+            Every family has its own circumstances, routines, and concerns. Faro helps you explore homecare options and take the next step with greater clarity.
+          </p>
+          <p class="intro__detail">
+            <svg class="icon" aria-hidden="true"><use href="#icon-leaf"></use></svg>
+            <span>Care shaped around routines, relationships, and what matters most.</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section services" id="services" aria-labelledby="services-title">
+      <div class="container">
+        <div class="section-heading services__heading">
+          <div data-reveal>
+            <p class="eyebrow">How we can help</p>
+            <h2 id="services-title">Care that meets people <em>where they are.</em></h2>
+          </div>
+          <p class="section-heading__aside" data-reveal style="--delay: 0.1s">
+            Four ways to begin exploring support at home. There is no need to have every answer before you reach out.
+          </p>
+        </div>
+
+        <div class="service-grid">
+          <article class="service-item service-item--lead" data-reveal>
+            <div class="service-item__media">
+              <img
+                src="https://images.pexels.com/photos/29372724/pexels-photo-29372724.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200"
+                alt="A caregiver gently holding an older adult's hands at home"
+                width="1200"
+                height="800"
+                loading="lazy"
+              >
+            </div>
+            <div class="service-item__body">
+              <div>
+                <span class="service-item__index">01</span>
+                <h3>Personal Assistant Service</h3>
+                <p>Personal support with everyday activities, with dignity and comfort at the centre.</p>
+              </div>
+              <button class="service-item__action" type="button" data-open-dialog="care-modal" data-service="Personal Assistant Service" aria-label="Enquire about Personal Assistant Service">
+                <svg class="icon" aria-hidden="true"><use href="#icon-arrow"></use></svg>
+              </button>
+            </div>
+          </article>
+
+          <article class="service-item" data-reveal style="--delay: 0.08s">
+            <div class="service-item__media">
+              <img
+                src="https://images.pexels.com/photos/7551656/pexels-photo-7551656.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1000"
+                alt="A caregiver sitting beside an older man in a bright, comfortable living room"
+                width="1200"
+                height="800"
+                loading="lazy"
+              >
+            </div>
+            <div class="service-item__body">
+              <div>
+                <span class="service-item__index">02</span>
+                <h3>Live-in Care</h3>
+                <p>Explore care arrangements where a caregiver lives in the home, depending on individual needs and availability.</p>
+              </div>
+              <button class="service-item__action" type="button" data-open-dialog="care-modal" data-service="Live-in Care" aria-label="Enquire about Live-in Care">
+                <svg class="icon" aria-hidden="true"><use href="#icon-arrow"></use></svg>
+              </button>
+            </div>
+          </article>
+
+          <article class="service-item" data-reveal>
+            <div class="service-item__media">
+              <img
+                src="https://images.pexels.com/photos/29372730/pexels-photo-29372730.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1000"
+                alt="A caregiver supporting an older woman as she moves through her home"
+                width="1200"
+                height="800"
+                loading="lazy"
+              >
+            </div>
+            <div class="service-item__body">
+              <div>
+                <span class="service-item__index">03</span>
+                <h3>Non-live-in Care</h3>
+                <p>Explore care provided through visits or agreed care periods without a caregiver living in the home.</p>
+              </div>
+              <button class="service-item__action" type="button" data-open-dialog="care-modal" data-service="Non-live-in Care" aria-label="Enquire about Non-live-in Care">
+                <svg class="icon" aria-hidden="true"><use href="#icon-arrow"></use></svg>
+              </button>
+            </div>
+          </article>
+
+          <article class="service-item" data-reveal style="--delay: 0.08s">
+            <div class="service-item__media">
+              <img
+                src="https://images.pexels.com/photos/6874091/pexels-photo-6874091.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1000"
+                alt="An older woman enjoying a quiet moment with a book and a cup of tea by a window"
+                width="1200"
+                height="1800"
+                loading="lazy"
+              >
+            </div>
+            <div class="service-item__body">
+              <div>
+                <span class="service-item__index">04</span>
+                <h3>Respite Care</h3>
+                <p>Temporary care arrangements intended to give a primary caregiver time to rest or attend to other responsibilities.</p>
+              </div>
+              <button class="service-item__action" type="button" data-open-dialog="care-modal" data-service="Respite Care" aria-label="Enquire about Respite Care">
+                <svg class="icon" aria-hidden="true"><use href="#icon-arrow"></use></svg>
+              </button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section process" id="how-it-works" aria-labelledby="process-title">
+      <div class="container">
+        <div class="process__head">
+          <div data-reveal>
+            <p class="eyebrow">A simple place to begin</p>
+            <h2 id="process-title">Taking the next step can feel <em>simpler.</em></h2>
+          </div>
+          <div class="process__head-aside" data-reveal style="--delay: 0.1s">
+            <p>No pressure and no perfect words required. Start with what you know, and take it one conversation at a time.</p>
+            <button class="button button--primary" type="button" data-open-dialog="care-modal">
+              Request Care
+              <svg class="icon" aria-hidden="true"><use href="#icon-arrow"></use></svg>
+            </button>
+          </div>
+        </div>
+
+        <ol class="process__grid">
+          <li class="process-step" data-reveal>
+            <span class="process-step__number">01</span>
+            <h3>Tell Us What You Need.</h3>
+            <p>Share a few details about the kind of support you are looking for.</p>
+          </li>
+          <li class="process-step" data-reveal style="--delay: 0.1s">
+            <span class="process-step__number">02</span>
+            <h3>Help Us Understand.</h3>
+            <p>Your enquiry provides a starting point for understanding your circumstances.</p>
+          </li>
+          <li class="process-step" data-reveal style="--delay: 0.2s">
+            <span class="process-step__number">03</span>
+            <h3>Explore the Way Forward.</h3>
+            <p>Learn more about the options available and the next steps.</p>
+          </li>
+        </ol>
+
+        <div class="process__foot" data-reveal>
+          <p>A considerate first step. Nothing more, nothing less.</p>
+          <button class="link-arrow" type="button" data-open-dialog="care-modal">
+            Begin with an enquiry
+            <svg class="icon" aria-hidden="true"><use href="#icon-arrow"></use></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about" id="about-faro" aria-labelledby="about-title">
+      <div class="container about__inner">
+        <div class="about__media" data-reveal>
+          <figure class="about__figure">
+            <img
+              src="https://images.pexels.com/photos/18429374/pexels-photo-18429374.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400"
+              alt="Two women sharing a warm, relaxed conversation in a comfortable home"
+              width="1200"
+              height="800"
+              loading="lazy"
+            >
+          </figure>
+          <p class="about__caption">
+            <svg class="icon" aria-hidden="true"><use href="#icon-leaf"></use></svg>
+            <span>At home, together.</span>
+          </p>
+        </div>
+
+        <div class="about__content" data-reveal style="--delay: 0.1s">
+          <p class="eyebrow">About Faro</p>
+          <h2 id="about-title">More than care. A little more <em>peace of mind.</em></h2>
+          <p>
+            Care is about the everyday moments that help a place feel like home, the reassurance of being treated with dignity, and the importance of understanding each person's circumstances.
+          </p>
+          <p>
+            Faro aims to make exploring homecare feel clearer, more personal, and more approachable.
+          </p>
+          <p class="about__values">
+            <span>Dignity in the everyday</span>
+            <span>Clarity at every step</span>
+          </p>
+          <a class="link-arrow" href="#services">
+            Explore our services
+            <svg class="icon" aria-hidden="true"><use href="#icon-arrow"></use></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="caregiver-cta" id="caregivers" aria-labelledby="caregiver-title">
+      <div class="container caregiver-cta__inner">
+        <div class="caregiver-cta__content" data-reveal>
+          <p class="eyebrow">Become a caregiver</p>
+          <h2 id="caregiver-title">Bring your <em>compassion</em> to care.</h2>
+          <p>
+            If you are interested in caregiving opportunities, Faro offers a way to express your interest and share relevant information about yourself.
+          </p>
+          <button class="button button--primary" type="button" data-open-dialog="caregiver-modal">
+            Become a Caregiver
+            <svg class="icon" aria-hidden="true"><use href="#icon-arrow"></use></svg>
+          </button>
+          <p class="caregiver-cta__note">Share your experience and availability, in your own time.</p>
+        </div>
+
+        <div class="caregiver-cta__media" data-reveal style="--delay: 0.1s">
+          <figure>
+            <img
+              src="https://images.pexels.com/photos/18459199/pexels-photo-18459199.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200"
+              alt="A smiling caregiver taking a quiet moment in a homely kitchen"
+              width="1200"
+              height="1800"
+              loading="lazy"
+            >
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section faq" id="faq" aria-labelledby="faq-title">
+      <div class="container faq__inner">
+        <div class="faq__intro" data-reveal>
+          <p class="eyebrow">Frequently asked questions</p>
+          <h2 id="faq-title">A little clarity, <em>before you begin.</em></h2>
+          <p>If your question is not here, you are welcome to begin an enquiry and share what is on your mind.</p>
+          <button class="link-arrow" type="button" data-open-dialog="care-modal">
+            Request Care
+            <svg class="icon" aria-hidden="true"><use href="#icon-arrow"></use></svg>
+          </button>
+        </div>
+
+        <div class="faq__list" data-reveal style="--delay: 0.1s">
+          <div class="faq-item is-open">
+            <h3 class="faq-item__heading">
+              <button class="faq-question" type="button" id="faq-question-1" aria-expanded="true" aria-controls="faq-answer-1">
+                <span>What types of homecare services can I enquire about?</span>
+                <span class="faq-icon" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq-answer" id="faq-answer-1" aria-hidden="false">
+              <div class="faq-answer__inner">
+                <p>You can enquire about personal assistance, live-in care, non-live-in care, and respite care. If you are unsure which option fits, share what you need and Faro can help you understand the possibilities.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-item__heading">
+              <button class="faq-question" type="button" id="faq-question-2" aria-expanded="false" aria-controls="faq-answer-2">
+                <span>How do I request care?</span>
+                <span class="faq-icon" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq-answer" id="faq-answer-2" aria-hidden="true">
+              <div class="faq-answer__inner">
+                <p>Use the Request Care button anywhere on this page to open the enquiry form. Share a few details about the support you are looking for and how best to reach you.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-item__heading">
+              <button class="faq-question" type="button" id="faq-question-3" aria-expanded="false" aria-controls="faq-answer-3">
+                <span>What happens after I submit a request?</span>
+                <span class="faq-icon" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq-answer" id="faq-answer-3" aria-hidden="true">
+              <div class="faq-answer__inner">
+                <p>Your enquiry is a starting point. It helps Faro understand your circumstances and explore the options that may be relevant. Submitting a request does not create a care agreement or guarantee availability.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-item__heading">
+              <button class="faq-question" type="button" id="faq-question-4" aria-expanded="false" aria-controls="faq-answer-4">
+                <span>Can I apply to become a caregiver?</span>
+                <span class="faq-icon" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq-answer" id="faq-answer-4" aria-hidden="true">
+              <div class="faq-answer__inner">
+                <p>Yes. Use the Become a Caregiver button to open the interest form and share relevant details about your experience and availability.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-item__heading">
+              <button class="faq-question" type="button" id="faq-question-5" aria-expanded="false" aria-controls="faq-answer-5">
+                <span>Does submitting a request guarantee care availability?</span>
+                <span class="faq-icon" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq-answer" id="faq-answer-5" aria-hidden="true">
+              <div class="faq-answer__inner">
+                <p>No. A request is an enquiry, not a confirmed booking. Availability depends on individual circumstances and will need to be discussed with Faro.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <h3 class="faq-item__heading">
+              <button class="faq-question" type="button" id="faq-question-6" aria-expanded="false" aria-controls="faq-answer-6">
+                <span>How can I contact Faro?</span>
+                <span class="faq-icon" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq-answer" id="faq-answer-6" aria-hidden="true">
+              <div class="faq-answer__inner">
+                <p>You can begin by using either enquiry form on this page. Faro's direct contact details will be published here once they are confirmed.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta" id="contact" aria-labelledby="final-cta-title">
+      <div class="container final-cta__inner">
+        <p class="eyebrow eyebrow--light" data-reveal>Get in touch</p>
+        <h2 id="final-cta-title" data-reveal style="--delay: 0.08s">Let's take the next step, <em>together.</em></h2>
+        <p data-reveal style="--delay: 0.16s">
+          Whether you are exploring care for someone you love or interested in becoming a caregiver, Faro is here to help you find the right place to begin.
+        </p>
+        <div class="final-cta__actions" data-reveal style="--delay: 0.24s">
+          <button class="button button--light" type="button" data-open-dialog="care-modal">
+            Request Care
+            <svg class="icon" aria-hidden="true"><use href="#icon-arrow"></use></svg>
+          </button>
+          <button class="button button--ghost-light" type="button" data-open-dialog="caregiver-modal">Become a Caregiver</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__top">
+        <div class="site-footer__brand">
+          <a class="brand" href="#home" aria-label="Faro Homecare — home">
+            <span class="brand__name">faro<span class="brand__dot">.</span></span>
+            <span class="brand__tag">homecare</span>
+          </a>
+          <p>Thoughtful homecare, explored with clarity, warmth, and respect for the way you live.</p>
+        </div>
+
+        <nav class="site-footer__col" aria-label="Footer navigation">
+          <p class="site-footer__label">Explore</p>
+          <div class="site-footer__links">
+            <a class="site-footer__link" href="#home">Home</a>
+            <a class="site-footer__link" href="#about-faro">About</a>
+            <a class="site-footer__link" href="#services">Services</a>
+            <a class="site-footer__link" href="#how-it-works">How It Works</a>
+            <a class="site-footer__link" href="#contact">Contact</a>
+          </div>
+        </nav>
+
+        <nav class="site-footer__col" aria-label="Service links">
+          <p class="site-footer__label">Services</p>
+          <div class="site-footer__links">
+            <button class="site-footer__link" type="button" data-open-dialog="care-modal" data-service="Personal Assistant Service">Personal Assistant Service</button>
+            <button class="site-footer__link" type="button" data-open-dialog="care-modal" data-service="Live-in Care">Live-in Care</button>
+            <button class="site-footer__link" type="button" data-open-dialog="care-modal" data-service="Non-live-in Care">Non-live-in Care</button>
+            <button class="site-footer__link" type="button" data-open-dialog="care-modal" data-service="Respite Care">Respite Care</button>
+          </div>
+        </nav>
+
+        <div class="site-footer__col">
+          <p class="site-footer__label">Begin</p>
+          <div class="site-footer__links">
+            <button class="site-footer__link site-footer__link--strong" type="button" data-open-dialog="care-modal">Request Care</button>
+            <button class="site-footer__link" type="button" data-open-dialog="caregiver-modal">Become a Caregiver</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="site-footer__bottom">
+        <p>&copy; <span id="current-year">2026</span> Faro Homecare. All rights reserved.</p>
+        <div class="site-footer__legal">
+          <button class="site-footer__legal-link" type="button" data-open-dialog="privacy-modal">Privacy Policy</button>
+          <button class="site-footer__legal-link" type="button" data-open-dialog="terms-modal">Terms and Conditions</button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <dialog class="modal" id="care-modal" aria-labelledby="care-modal-title" aria-describedby="care-modal-description">
+    <div class="modal__panel">
+      <button class="modal__close" type="button" data-close-dialog aria-label="Close care request form">
+        <svg class="icon" aria-hidden="true"><use href="#icon-close"></use></svg>
+      </button>
+      <div class="modal__head">
+        <p class="eyebrow">Request care</p>
+        <h2 id="care-modal-title">Let's start with what you need.</h2>
+        <p id="care-modal-description">Share a few details below. This gives Faro a thoughtful place to begin understanding your circumstances.</p>
+      </div>
+
+      <form class="form" id="care-form" novalidate>
+        <div class="form__grid">
+          <div class="form-field" data-field>
+            <label for="care-name">Full name</label>
+            <input id="care-name" name="name" type="text" autocomplete="name" placeholder="Your name" required>
+            <p class="form-field__error" data-error aria-live="polite"></p>
+          </div>
+          <div class="form-field" data-field>
+            <label for="care-email">Email address</label>
+            <input id="care-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+            <p class="form-field__error" data-error aria-live="polite"></p>
+          </div>
+          <div class="form-field" data-field>
+            <label for="care-phone">Phone <span>(optional)</span></label>
+            <input id="care-phone" name="phone" type="tel" autocomplete="tel" placeholder="Your phone number">
+            <p class="form-field__error" data-error aria-live="polite"></p>
+          </div>
+          <div class="form-field" data-field>
+            <label for="care-for">Who is the care for?</label>
+            <select id="care-for" name="careFor" required>
+              <option value="" selected disabled>Please choose</option>
+              <option value="A parent">A parent</option>
+              <option value="A partner">A partner</option>
+              <option value="Myself">Myself</option>
+              <option value="Another relative or friend">Another relative or friend</option>
+              <option value="Prefer not to say">Prefer not to say</option>
+            </select>
+            <p class="form-field__error" data-error aria-live="polite"></p>
+          </div>
+          <div class="form-field form-field--full" data-field>
+            <label for="care-type">What kind of support are you exploring?</label>
+            <select id="care-type" name="careType">
+              <option value="Not sure yet">Not sure yet</option>
+              <option value="Personal Assistant Service">Personal Assistant Service</option>
+              <option value="Live-in Care">Live-in Care</option>
+              <option value="Non-live-in Care">Non-live-in Care</option>
+              <option value="Respite Care">Respite Care</option>
+            </select>
+            <p class="form-field__error" data-error aria-live="polite"></p>
+          </div>
+          <div class="form-field form-field--full" data-field>
+            <label for="care-message">Tell us a little about what you need</label>
+            <textarea id="care-message" name="message" rows="4" placeholder="A few words about your circumstances, routines, or questions." required></textarea>
+            <p class="form-field__error" data-error aria-live="polite"></p>
+          </div>
+        </div>
+
+        <p class="form__demo">
+          <svg class="icon" aria-hidden="true"><use href="#icon-info"></use></svg>
+          <span><strong>Demonstration form.</strong> No information is sent or stored. This page is not yet connected to a live Faro service.</span>
+        </p>
+
+        <div class="form__actions">
+          <p class="form__note">No obligation. Just a place to begin.</p>
+          <button class="button button--primary" type="submit">
+            Submit request
+            <svg class="icon" aria-hidden="true"><use href="#icon-arrow"></use></svg>
+          </button>
+        </div>
+      </form>
+
+      <div class="form-success" data-success hidden>
+        <span class="form-success__icon" aria-hidden="true">
+          <svg class="icon"><use href="#icon-check"></use></svg>
+        </span>
+        <h3 tabindex="-1" data-success-heading>Thank you, <span data-success-name>friend</span>.</h3>
+        <p>This demonstration form has not sent your details to Faro. In a live version, your enquiry would be passed securely to the team.</p>
+        <button class="button button--outline" type="button" data-close-dialog>Close</button>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog class="modal" id="caregiver-modal" aria-labelledby="caregiver-modal-title" aria-describedby="caregiver-modal-description">
+    <div class="modal__panel">
+      <button class="modal__close" type="button" data-close-dialog aria-label="Close caregiver interest form">
+        <svg class="icon" aria-hidden="true"><use href="#icon-close"></use></svg>
+      </button>
+      <div class="modal__head">
+        <p class="eyebrow">Become a caregiver</p>
+        <h2 id="caregiver-modal-title">Tell us about yourself.</h2>
+        <p id="caregiver-modal-description">Share a little about your experience and availability. This is an expression of interest, not an application for a specific role.</p>
+      </div>
+
+      <form class="form" id="caregiver-form" novalidate>
+        <div class="form__grid">
+          <div class="form-field" data-field>
+            <label for="caregiver-name">Full name</label>
+            <input id="caregiver-name" name="name" type="text" autocomplete="name" placeholder="Your name" required>
+            <p class="form-field__error" data-error aria-live="polite"></p>
+          </div>
+          <div class="form-field" data-field>
+            <label for="caregiver-email">Email address</label>
+            <input id="caregiver-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+            <p class="form-field__error" data-error aria-live="polite"></p>
+          </div>
+          <div class="form-field" data-field>
+            <label for="caregiver-phone">Phone <span>(optional)</span></label>
+            <input id="caregiver-phone" name="phone" type="tel" autocomplete="tel" placeholder="Your phone number">
+            <p class="form-field__error" data-error aria-live="polite"></p>
+          </div>
+          <div class="form-field" data-field>
+            <label for="caregiver-location">City or area</label>
+            <input id="caregiver-location" name="location" type="text" autocomplete="address-level2" placeholder="Where are you based?" required>
+            <p class="form-field__error" data-error aria-live="polite"></p>
+          </div>
+          <div class="form-field" data-field>
+            <label for="caregiver-experience">Caregiving experience</label>
+            <select id="caregiver-experience" name="experience" required>
+              <option value="" selected disabled>Please choose</option>
+              <option value="No formal experience yet">No formal experience yet</option>
+              <option value="Less than 1 year">Less than 1 year</option>
+              <option value="1–3 years">1–3 years</option>
+              <option value="3–5 years">3–5 years</option>
+              <option value="More than 5 years">More than 5 years</option>
+            </select>
+            <p class="form-field__error" data-error aria-live="polite"></p>
+          </div>
+          <div class="form-field" data-field>
+            <label for="caregiver-availability">Availability</label>
+            <select id="caregiver-availability" name="availability" required>
+              <option value="" selected disabled>Please choose</option>
+              <option value="Full-time">Full-time</option>
+              <option value="Part-time">Part-time</option>
+              <option value="Flexible or occasional">Flexible or occasional</option>
+              <option value="Live-in">Live-in</option>
+              <option value="Not sure yet">Not sure yet</option>
+            </select>
+            <p class="form-field__error" data-error aria-live="polite"></p>
+          </div>
+          <div class="form-field form-field--full" data-field>
+            <label for="caregiver-message">A little about you</label>
+            <textarea id="caregiver-message" name="message" rows="4" placeholder="Share what draws you to caregiving, relevant experience, or anything you would like Faro to know." required></textarea>
+            <p class="form-field__error" data-error aria-live="polite"></p>
+          </div>
+        </div>
+
+        <p class="form__demo">
+          <svg class="icon" aria-hidden="true"><use href="#icon-info"></use></svg>
+          <span><strong>Demonstration form.</strong> No information is sent or stored. This page is not yet connected to a live Faro service.</span>
+        </p>
+
+        <div class="form__actions">
+          <p class="form__note">An expression of interest, with no obligation.</p>
+          <button class="button button--primary" type="submit">
+            Share my interest
+            <svg class="icon" aria-hidden="true"><use href="#icon-arrow"></use></svg>
+          </button>
+        </div>
+      </form>
+
+      <div class="form-success" data-success hidden>
+        <span class="form-success__icon" aria-hidden="true">
+          <svg class="icon"><use href="#icon-check"></use></svg>
+        </span>
+        <h3 tabindex="-1" data-success-heading>Thank you for your interest, <span data-success-name>friend</span>.</h3>
+        <p>This demonstration form has not sent your details to Faro. In a live version, your interest would be shared securely with the team.</p>
+        <button class="button button--outline" type="button" data-close-dialog>Close</button>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog class="modal modal--legal" id="privacy-modal" aria-labelledby="privacy-modal-title">
+    <div class="modal__panel">
+      <button class="modal__close" type="button" data-close-dialog aria-label="Close privacy policy">
+        <svg class="icon" aria-hidden="true"><use href="#icon-close"></use></svg>
+      </button>
+      <div class="modal__head">
+        <p class="eyebrow">Privacy Policy</p>
+        <h2 id="privacy-modal-title">Your privacy matters.</h2>
+      </div>
+      <div class="legal-copy">
+        <p>This demonstration website does not collect, transmit, or store the information you enter into its forms. The care request and caregiver forms validate entries in your browser only and are not connected to a live service.</p>
+        <p>If this site is launched, this notice must be replaced with the operator's actual privacy policy, including how enquiries are handled, retained, and protected.</p>
+        <p>Questions about privacy can be directed to Faro once official contact details are published.</p>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog class="modal modal--legal" id="terms-modal" aria-labelledby="terms-modal-title">
+    <div class="modal__panel">
+      <button class="modal__close" type="button" data-close-dialog aria-label="Close terms and conditions">
+        <svg class="icon" aria-hidden="true"><use href="#icon-close"></use></svg>
+      </button>
+      <div class="modal__head">
+        <p class="eyebrow">Terms and Conditions</p>
+        <h2 id="terms-modal-title">A clear place to begin.</h2>
+      </div>
+      <div class="legal-copy">
+        <p>This website is a design demonstration for Faro Homecare. Its content is provided for general information and does not constitute a care agreement, an offer of employment, or professional advice.</p>
+        <p>Submitting an enquiry through this demonstration does not guarantee care availability, a response time, placement, or employment. Any future service would be subject to separate terms agreed with Faro.</p>
+        <p>Photography is sourced from Pexels and used for demonstration purposes.</p>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
