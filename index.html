@@ -747,6 +747,22 @@
     </div>
   </dialog>
 
+  <script type="module" src="https://esm.sh/motion@latest"></script>
   <script src="script.js" defer></script>
+  <script type="module">
+    const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduced) {
+      import('https://esm.sh/framer-motion@11.11.17').then((mod) => {
+        const animate = mod.animate || (mod.default && mod.default.animate);
+        const inView = mod.inView || (mod.default && mod.default.inView);
+        if (!animate || !inView) return;
+        inView('[data-reveal]', (entry) => {
+          const el = entry.target;
+          const delay = parseFloat(el.style.getPropertyValue('--delay') || '0');
+          animate(el, { opacity: [0, 1], transform: ['translateY(20px)', 'translateY(0)'] }, { duration: 0.8, delay });
+        }, { margin: '-40px' });
+      }).catch(() => {});
+    }
+  </script>
 </body>
 </html>
