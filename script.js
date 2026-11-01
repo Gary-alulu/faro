@@ -28,7 +28,7 @@
     revealElements.forEach((element) => element.classList.add("is-visible"));
   };
 
-  const initMotionAnimations = () => {
+  // Motion animations removed for Figma compatibility
     if (reducedMotion.matches) {
       revealAll();
       return;
@@ -89,14 +89,8 @@
       revealElements.forEach((element) => revealObserver.observe(element));
     } else {
       revealAll();
-    }
-  };
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initMotionAnimations);
-  } else {
-    initMotionAnimations();
   }
+})();
 
   const setMenuState = (isOpen) => {
     if (!menuToggle || !mobileMenu) return;
