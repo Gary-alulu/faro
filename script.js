@@ -28,24 +28,74 @@
     revealElements.forEach((element) => element.classList.add("is-visible"));
   };
 
-  if (reducedMotion.matches || !("IntersectionObserver" in window)) {
-    revealAll();
-  } else {
-    const revealObserver = new IntersectionObserver(
-      (entries, observer) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        });
-      },
-      {
-        threshold: 0.12,
-        rootMargin: "0px 0px -36px 0px"
-      }
-    );
+  const initMotionAnimations = () => {
+    if (reducedMotion.matches) {
+      revealAll();
+      return;
+    }
 
-    revealElements.forEach((element) => revealObserver.observe(element));
+    if (typeof window.Motion !== "undefined") {
+      const { animate, inView, scroll } = window.Motion;
+
+      inView("[data-reveal]", ({ target }) => {
+        animate(
+          target,
+          { opacity: [0, 1], y: [20, 0] },
+          { duration: 0.8, easing: [0.22, 0.61, 0.36, 1], delay: parseFloat(target.style.getPropertyValue("--delay") || "0") }
+        );
+      }, { margin: "-40px" });
+
+      scroll(
+        animate(".hero__media", { y: [-20, 40] }, { easing: "linear" }),
+        { target: document.querySelector(".hero") }
+      );
+
+      const serviceItems = document.querySelectorAll(".service-item");
+      serviceItems.forEach((item) => {
+        inView(item, ({ target }) => {
+          animate(
+            target,
+            { opacity: [0, 1], y: [30, 0] },
+            { duration: 0.7, easing: [0.22, 0.61, 0.36, 1] }
+          );
+        }, { margin: "-50px" });
+      });
+
+      const processSteps = document.querySelectorAll(".process-step");
+      processSteps.forEach((step, i) => {
+        inView(step, ({ target }) => {
+          animate(
+            target,
+            { opacity: [0, 1], y: [24, 0] },
+            { duration: 0.7, delay: i * 0.1, easing: [0.22, 0.61, 0.36, 1] }
+          );
+        }, { margin: "-40px" });
+      });
+    } else if ("IntersectionObserver" in window) {
+      const revealObserver = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          });
+        },
+        {
+          threshold: 0.12,
+          rootMargin: "0px 0px -36px 0px"
+        }
+      );
+
+      revealElements.forEach((element) => revealObserver.observe(element));
+    } else {
+      revealAll();
+    }
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initMotionAnimations);
+  } else {
+    initMotionAnimations();
   }
 
   const setMenuState = (isOpen) => {
